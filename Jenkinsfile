@@ -1,17 +1,16 @@
 pipeline{
-    agent('master'){
+    agent { label 'master' }
         stages{
-            stage('pull docker image'){
+            stage('pull_docker_image'){
                 steps{
                     sh 'docker pull souljaboy935/upload:jenkins'
                 }
             }
-            stage('run container'){
+            stage('run_container'){
                 steps{
                     sh 'docker run souljaboy935/upload:jenkins'
                     echo 'this worked'
                 }
             }
         }
-    }
 }
